@@ -3,6 +3,7 @@
 /*
 
 This is an ast node in namespace ast, each node has a private value and the constructor takes in that value
+The class is an IntConstant
 It has 2 functions:
 1. EmitRISC which takes in an output stream to output to and context of type Context -> ?
 2. Print which takes in a stream

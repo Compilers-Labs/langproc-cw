@@ -1,5 +1,10 @@
 #include "ast_constant.hpp"
+/*
 
+This configures the IntConstant command RISC to be "li a0, value" which stores value in a0
+Print does nothing
+
+*/
 namespace ast {
 
 void IntConstant::EmitRISC(std::ostream& stream, Context&) const {
