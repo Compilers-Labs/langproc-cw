@@ -18,7 +18,8 @@
 				"ms-python.python",
 				"daohong-emilio.yash",
 				"EditorConfig.EditorConfig",
-				"llvm-vs-code-extensions.vscode-clangd"
+				"llvm-vs-code-extensions.vscode-clangd",
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	}
