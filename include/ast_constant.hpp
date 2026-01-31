@@ -9,6 +9,10 @@ It has 2 functions:
 
 they are both void return types and marked as const override so they are written somewhere else.
 
+Context is an undefined class at the moment but each ast node essentially has context to do with stuff like function scope and variables,
+we can use this information in the future after we build the context class and add stuff to it.
+
+
 */
 
 #include "ast_node.hpp"
