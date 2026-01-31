@@ -1,5 +1,12 @@
 #include "ast_function_definition.hpp"
 
+/*
+
+Function definition defines some directives, emits the declarator which is a node pointer to a delcerator node
+then the compound_statement which is printed/ Emitted as it is a node pointer to a node list and iteratively sends to ostream.
+
+*/
+
 namespace ast {
 
 void FunctionDefinition::EmitRISC(std::ostream& stream,
@@ -28,5 +35,4 @@ void FunctionDefinition::Print(std::ostream& stream) const {
   }
   stream << "}" << std::endl;
 }
-
 }  // namespace ast
