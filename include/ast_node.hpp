@@ -1,5 +1,22 @@
 #pragma once
 
+/*
+
+Node, NodePtr and NodeList are defined here
+1.
+Node is a class with virtual (overridable) functions: constructor, EmitRISC, Print
+
+2.
+NodePtr is just defined as a unique ptr, Msg for Yichan: UniquePtr is just a pointer that can only be assgigned to one thing at one time
+and it auto deletes when it goes out of scope
+
+3.
+NodeList inherits from node and takes in a first node which it pushes into a priv vector
+an extra function pushback is in this which will (in the future decleration) add to the vec
+
+*/
+
+
 #include <iostream>
 #include <memory>
 #include <vector>
