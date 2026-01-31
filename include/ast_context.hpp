@@ -34,12 +34,18 @@ public:
         return register_map[name];
     }
 
+    //Change to templated aswell
+    void setRegister(std::string name, int32_t value){
+        register_map[name] = value;
+    }
 
-    void setRegister(std::string name, int32_t value);
+    void PCPlusOne(){
+        pc++;
+    }
 
-    void PCPlusOne();
+    void jump(std::string label){
 
-    void jump(std::string label);
+    }
 
     void step();
 
