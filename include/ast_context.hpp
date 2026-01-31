@@ -24,17 +24,11 @@ protected:
 public:
     virtual ~Instruction(){}
 
-    std::string get_line_content() const {
-        return line_content;
-    }
+    std::string get_line_content() const;
 
-    unsigned get_line_number() const {
-        return line_number;
-    }
+    unsigned get_line_number() const;
 
-    virtual std::string get_assembly() const {
-        return "";
-    }
+    virtual std::string get_assembly() const;
 
     virtual void execute(Context &ctxt) const = 0;
 };
@@ -53,14 +47,7 @@ private:
 public:
     Context() : pc(0){}
 
-    int32_t get_register(std::string name){
-
-        std::cerr << "getRegister(" << name << ")\n";
-        if (!register_map.count(name)){
-            throw std::runtime_error("getRegister("+name+") : Register does not exist");
-        }
-        return register_map[name];
-    }
+    int32_t get_register(std::string name);
 
     //Change to templated aswell
     void set_register(std::string name, int32_t value){
@@ -72,7 +59,6 @@ public:
     }
 
     void jump(std::string label){
-
         std::cerr << "jump(" << label << ")\n";
         if (!label_map.count(label)){
             throw std::runtime_error("jump("+label+") : Label does not exist");
@@ -94,10 +80,8 @@ public:
         std::cerr << "}\n";
 
         instruction_list.at(pc)->execute(*this);
-
     }
 
     void add_instruction(const std::string &line);
 };
 } // namespace ast
-
