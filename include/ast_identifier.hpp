@@ -1,5 +1,12 @@
 #pragma once
 
+/*
+
+Identifier which inherits ast node, takes in a string identifier
+
+*/
+
+
 #include "ast_node.hpp"
 
 namespace ast {
