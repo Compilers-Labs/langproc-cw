@@ -9,6 +9,7 @@
 
 namespace ast {
 
+class Context;
 
 class Instruction{
 private:
@@ -26,6 +27,16 @@ public:
     std::string get_line_content() const {
         return line_content;
     }
+
+    unsigned get_line_number() const {
+        return line_number;
+    }
+
+    virtual std::string get_assembly() const {
+        return "";
+    }
+
+    virtual void execute(Context &ctxt) const = 0;
 };
 // An object of class Context is passed between ast nodes during compilation.
 // This can be used to pass around information about what's currently being
@@ -76,7 +87,7 @@ public:
         assert(instruction_list.at(pc));
 
         //CHANGE THIS TO LOGGING CLASS WHEN CREATED
-        std::cerr << "Exec " << instruction_list[pc]->getIndex() << ":" << instruction_list[pc]->getAssembly() << ", {";
+        std::cerr << "Exec " << instruction_list[pc]->get_line_number() << ":" << instruction_list[pc]->get_assembly() << ", {";
         for(auto x : register_map){
             std::cerr << " " << x.first << ":" << x.second;
         }
