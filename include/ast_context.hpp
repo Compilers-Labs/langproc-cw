@@ -45,6 +45,11 @@ public:
 
     void jump(std::string label){
 
+        std::cerr << "jump(" << label << ")\n";
+        if (!label_map.count(label)){
+            throw std::runtime_error("jump("+label+") : Label does not exist");
+        }
+        pc = label_map[label];
     }
 
     void step();
