@@ -8,7 +8,7 @@ Then we declare a new class FunctionDefinition which inherits the ats node.
 This takes in a TypeSpecifier, NodePtr declarator and NodePtr Compound_statement
 
 This is to be determined what they do but I would assume that the node pointers point to:
-Declarator -> paramaters?
+Declarator -> name of function
 compound_statement -> next ats node for inside the function?
 
 The TypeSpecifier is probably the return type of the function
