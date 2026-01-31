@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include <iostream>
 #include <memory>
 #include <stdexcept>
@@ -8,14 +9,13 @@
 
 namespace ast {
 
-class Instruction;
+
 // An object of class Context is passed between ast nodes during compilation.
 // This can be used to pass around information about what's currently being
 // compiled (e.g. function scope and variable names).
 
 
-class Context
-{
+class Context{
 private:
     unsigned pc;//program counter
     //CHANGE TO TEMPLATE VARIABLE
@@ -25,7 +25,7 @@ private:
 public:
     Context() : pc(0){}
 
-    int32_t getRegister(std::string name){
+    int32_t get_register(std::string name){
 
         std::cerr << "getRegister(" << name << ")\n";
         if (!register_map.count(name)){
@@ -35,11 +35,11 @@ public:
     }
 
     //Change to templated aswell
-    void setRegister(std::string name, int32_t value){
+    void set_register(std::string name, int32_t value){
         register_map[name] = value;
     }
 
-    void PCPlusOne(){
+    void pc_plus_one(){
         pc++;
     }
 
@@ -52,7 +52,22 @@ public:
         pc = label_map[label];
     }
 
-    void step();
+    void step(){
+        if(pc >= instruction_list.size() ){
+            throw std::runtime_error("step : program counter out of range");
+        }
+        assert(instruction_list.at(pc));
+
+        //CHANGE THIS TO LOGGING CLASS WHEN CREATED
+        std::cerr << "Exec " << instruction_list[pc]->getIndex() << ":" << instruction_list[pc]->getAssembly() << ", {";
+        for(auto x : register_map){
+            std::cerr << " " << x.first << ":" << x.second;
+        }
+        std::cerr << "}\n";
+
+        instruction_list.at(pc)->execute(*this);
+
+    }
 
     void add_instruction(const std::string &line);
 };
