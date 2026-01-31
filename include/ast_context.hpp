@@ -10,6 +10,23 @@
 namespace ast {
 
 
+class Instruction{
+private:
+    unsigned line_number;
+    std::string line_content;
+protected:
+    Instruction(unsigned _line_number, std::string _line_content)
+        : line_number(_line_number),
+        line_content(_line_content)
+{}
+
+public:
+    virtual ~Instruction(){}
+
+    std::string get_line_content() const {
+        return line_content;
+    }
+};
 // An object of class Context is passed between ast nodes during compilation.
 // This can be used to pass around information about what's currently being
 // compiled (e.g. function scope and variable names).
