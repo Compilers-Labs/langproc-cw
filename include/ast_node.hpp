@@ -8,7 +8,7 @@ Node is a class with virtual (overridable) functions: constructor, EmitRISC, Pri
 
 2.
 NodePtr is just defined as a unique ptr, Msg for Yichan: UniquePtr is just a pointer that can only be assgigned to one thing at one time
-and it auto deletes when it goes out of scope
+and it auto deletes when it goes out of scope, to move them to another variable std::move must me used.
 
 3.
 NodeList inherits from node and takes in a first node which it pushes into a priv vector
