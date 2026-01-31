@@ -1,5 +1,12 @@
 #pragma once
 
+/*
+
+DirectDeclarator inherits from our ast node class, it takes in a NodePtr and uses std::move to move (a unique pointer?) into its own private version...
+
+*/
+
+
 #include "ast_node.hpp"
 
 namespace ast {
