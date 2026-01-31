@@ -19,6 +19,8 @@ std::cout << t
 
 this would output int to the console.
 
+the template is not restricted by it actually being a logstream/ostream but it is implied that it should be used this way.
+
 */
 
 

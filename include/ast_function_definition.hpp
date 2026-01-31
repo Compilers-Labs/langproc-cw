@@ -1,5 +1,21 @@
 #pragma once
 
+/*
+
+We include the ast node and type specifier
+
+Then we declare a new class FunctionDefinition which inherits the ats node.
+This takes in a TypeSpecifier, NodePtr declarator and NodePtr Compound_statement
+
+This is to be determined what they do but I would assume that the node pointers point to:
+Declarator -> paramaters?
+compound_statement -> next ats node for inside the function?
+
+The TypeSpecifier is probably the return type of the function
+
+*/
+
+
 #include "ast_node.hpp"
 #include "ast_type_specifier.hpp"
 
