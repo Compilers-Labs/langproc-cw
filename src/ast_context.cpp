@@ -10,6 +10,16 @@
 
 namespace ast {
 
+
+//context implementation methods modified from lab 3
+int32_t Context::get_register(std::string name) {
+    std::cerr << "getRegister(" << name << ")\n";
+    if (!register_map.count(name)){
+        throw std::runtime_error("getRegister("+name+") : Register does not exist");
+    }
+    return register_map[name];
+}
+
 //Change to templated aswell
 void Context::set_register(std::string name, int32_t value){
     register_map[name] = value;
@@ -42,6 +52,7 @@ void Context::step(){
 
     instruction_list.at(pc)->execute(*this);
 }
+
 
 //add_instruction function parses input line and fills out arguments
 // and push_back to instruction_list accordingly
