@@ -14,7 +14,6 @@ class Instruction;
 // This can be used to pass around information about what's currently being
 // compiled (e.g. function scope and variable names).
 
-
 class Context{
 private:
     unsigned pc;//program counter
@@ -37,4 +36,5 @@ public:
 
     void add_instruction(const std::string &line);
 };
+
 } // namespace ast
