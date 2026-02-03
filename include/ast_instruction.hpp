@@ -1,6 +1,8 @@
 #pragma once
 #include "ast_context.hpp"
+#include <cstdint>
 #include <string>
+#include <vector>
 
 //ast instruction definiton
 
@@ -53,6 +55,7 @@ public:
     std::string get_assembly() const override;
 
     void execute(Context &ctxt) const override;
+};
 
 class ParamInstruction : public Instruction {
 private:
@@ -70,7 +73,7 @@ public:
 };
 
 // Initialize the static member
-std::vector<int32_t> ParamInstruction::args;
+std::vector<int32_t> ParamInstruction::args; // ??
 
 class OutputInstruction : public Instruction {
 private:
@@ -114,5 +117,4 @@ public:
     void execute(Context &ctxt) const override;
 };
 
-} // namespace ast
-
+}; // namespace ast
